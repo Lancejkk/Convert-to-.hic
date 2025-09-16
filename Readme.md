@@ -60,7 +60,8 @@ Or you can see this picture blow, I made some mark for understanding.
 4. Run convert_from_hic_to_csv.py, get the csv(map) file.
 
 
-
+**Combine two hic map to one box Tutorial:**
+Set right path in Combine_2hic.py and Run it.
 
 
 
