@@ -1,7 +1,7 @@
 """
 Author: Junkai Zhang (Kain)
-Created:  '2025-04-30'
-Last Modified:2025-05-12
+Created:  '2025-09-15'
+Last Modified:2025-09-15
 Email: junkaiz@vt.edu
 """
 
@@ -10,7 +10,6 @@ Email: junkaiz@vt.edu
 """
 Convert Igor “.map” matrices ➜ Juicer short‑with‑score (TAB) ➜ “.hic”.
 Requirements: numpy, pandas, gzip (Python) + Java + juicer_tools_1.22.01.jar
-Usage:        python map2hic.py
 """
 
 # ======== CONFIGURATION (edit only this block) ========
