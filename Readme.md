@@ -22,7 +22,8 @@
 
 3. **converse_to_hic.py**
 
-    PS: This is only for 1169*1169, and the format should be: ![image-20250512144059609](C:\Users\Lance\AppData\Roaming\Typora\typora-user-images\image-20250512144059609.png)
+    PS: This is only for 1169*1169, and the format should be: <img width="776" height="52" alt="image-20250512144059609" src="https://github.com/user-attachments/assets/f2a58f87-86e5-452f-a498-3d0a781b58d7" />
+
 
    
 
@@ -38,7 +39,8 @@
 
 Or you can see this picture blow, I made some mark for understanding.
 
-![image-20250512144920611](C:\Users\Lance\AppData\Roaming\Typora\typora-user-images\image-20250512144920611.png)
+<img width="936" height="616" alt="image-20250512144920611" src="https://github.com/user-attachments/assets/ad2b3f47-928b-415e-9f9e-abad8ddbefa1" />
+
 
 
 
@@ -61,5 +63,6 @@ Or you can see this picture blow, I made some mark for understanding.
 
 
 Ps:
+
 
 You can find all of commands for Juicer_tool in this link:https://github.com/aidenlab/juicer/wiki/Pre
