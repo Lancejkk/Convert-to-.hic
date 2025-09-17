@@ -62,6 +62,7 @@ Or you can see this picture blow, I made some mark for understanding.
 
 **Combine two hic map to one box Tutorial:**
 Set right path in Combine_2hic.py and Run it.
+You can also combine 2 hic-maps without normalization.
 
 
 
