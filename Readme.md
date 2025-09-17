@@ -35,7 +35,7 @@
 
 **Convert .map to .hic Tutorial:**
 
-1. The only thing you need to change is MAP_FILES that you can easily find it in my code.
+1. The only thing you need to change is MAP_FILES that you can easily find it in my code which in /Convert_map_to_hic/convert_map_to_hic.py.
 
 Or you can see this picture blow, I made some mark for understanding.
 
