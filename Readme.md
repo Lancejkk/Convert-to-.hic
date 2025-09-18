@@ -1,79 +1,66 @@
-**Pre-requirements:**
+# MAP ⇄ HIC Conversion Toolkit
 
-------
+Scripts for converting between `.map` and `.hic` formats and combining two Hi-C maps, built around **Juicer Tools**.
 
-1. **Java enviroment: Java 1.7 or 1.8 JDK:**
+## Requirements
 
-- [Java 1.7 or 1.8 JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). ([Alternative link](http://tecadmin.net/install-oracle-java-8-jdk-8-ubuntu-via-ppa/) for Ubuntu/LinuxMint). Minimum system requirements for running Java can be found at http://java.com/en/download/help/sysreq.xml
+- **Java JDK 1.7 or 1.8**  
+  Download: <http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html>  
+  (Ubuntu/LinuxMint alternative: <http://tecadmin.net/install-oracle-java-8-jdk-8-ubuntu-via-ppa/>)  
+  Minimum system requirements for Java: <http://java.com/en/download/help/sysreq.xml>
 
-- [Latest Juicer Tools jar](https://github.com/theaidenlab/juicer/wiki/Download)
+- **Juicer Tools (latest .jar)**  
+  <https://github.com/aidenlab/juicer/wiki/Download>
 
-  
+- **Python 3.9** (example environment)  
+  Dependencies: `numpy`, `pathlib`  
+  Install:
+  ```bash
+  pip install numpy pathlib
+  ```
 
-2. **Some packages from python**
+- **Scripts**
+  - `converse_to_hic.py` (currently supports **1169×1169**; adjust if your map size/format differs)  
+    <img width="776" height="52" alt="image-20250512144059609" src="https://github.com/user-attachments/assets/f2a58f87-86e5-452f-a498-3d0a781b58d7" />
+  - `Convert_map_to_hic/convert_map_to_hic.py`
+  - `convert_from_hic_to_csv.py`
+  - `Combine_2hic.py`
 
-   Python 3.9(I used)
+- **Input map files** (processed **one at a time** for now)
 
-   numpy, pathlib which you can easily install it at command. 
+---
 
-   In case you don't want search on the web: pip install numpy and pip install pathlib
+## Usage
 
-   
+### 1) `.map → .hic`
 
-3. **converse_to_hic.py**
+1. Open `Convert_map_to_hic/convert_map_to_hic.py` and edit **`MAP_FILES`** (marked in the screenshot).  
+   <img width="936" height="616" alt="image-20250512144920611" src="https://github.com/user-attachments/assets/ad2b3f47-928b-415e-9f9e-abad8ddbefa1" />
+2. Run the script to generate the `.hic` file.
 
-    PS: This is only for 1169*1169, and the format should be(You could make some changes to let it fit in your maps): <img width="776" height="52" alt="image-20250512144059609" src="https://github.com/user-attachments/assets/f2a58f87-86e5-452f-a498-3d0a781b58d7" />
+> Note: If your input format/size differs, update `converse_to_hic.py` accordingly.
 
+---
 
-   
+### 2) `.hic → .csv (.map)`
 
-4. **Map files which you want to convert** 
+1. Open the `.hic` in **Juicebox** to identify chromosome range and bin size (e.g., `chr11:1–122,082,543`, `Bin Size: 250 kb`, `Norm = None`).  
+2. Use **juicer_tools** to dump the observed matrix (example):
+   ```bash
+   java -jar Tools/juicer_tools_1.22.01.jar dump observed NONE      "E:/chro_research/Week10/mouse_Big_hicmap/cellnames_cluster_4.hic"      chr11:1:122082543 chr11:1:122082543 BP 250000      mouse_cluster4_chr11_250kb.txt
+   ```
+3. Use the generated `.txt` as input to `convert_from_hic_to_csv.py`.
+4. Run `convert_from_hic_to_csv.py` to obtain the `.csv` (or `.map`) file.
 
-   You need to process it onr by one for now
+---
 
-------
+### 3) Combine two `.hic` maps into one view
 
-**Convert .map to .hic Tutorial:**
+- Set the correct paths in `Combine_2hic.py` and run.  
+- Combining **without normalization** is supported.
 
-1. The only thing you need to change is MAP_FILES that you can easily find it in my code which in /Convert_map_to_hic/convert_map_to_hic.py.
+---
 
-Or you can see this picture blow, I made some mark for understanding.
+## Reference
 
-<img width="936" height="616" alt="image-20250512144920611" src="https://github.com/user-attachments/assets/ad2b3f47-928b-415e-9f9e-abad8ddbefa1" />
-
-
-
-
-2. Then just run this code.
-
-   You will get .hic file successfully!!!
-
-
-**Convert .hic to .csv(.map) Tutorial:**
-1. Upload .hic file on JuiceBox to check chromosome and the Bin size.(Ex. chr11:1-122,082,543 chr11:1-122,082.543 Bin Size: 250kb, Norm = None)
-
-2. Use juicerTools to get initial matrix  (Ex. java -jar Tools/juicer_tools_1.22.01.jar dump observed NONE "E:/chro_research/Week10/mouse_Big_hicmap/cellnames_cluster_4.hic" chr11:1:122082543 chr11:1:122082543 BP 250000 mouse_cluster4_chr11_250kb.txt
-)
-
-3. Use gernerated txt file as input for convert_from_hic_to_csv.py
-
-4. Run convert_from_hic_to_csv.py, get the csv(map) file.
-
-
-**Combine two hic map to one box Tutorial:**
-Set right path in Combine_2hic.py and Run it.
-You can also combine 2 hic-maps without normalization.
-
-
-
-
-
-
-
-
-
-
-Ps:
-
-
-You can find all of commands for Juicer_tool in this link:https://github.com/aidenlab/juicer/wiki/Pre
+- Juicer tool command list: <https://github.com/aidenlab/juicer/wiki/Pre>
